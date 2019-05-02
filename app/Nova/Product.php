@@ -47,7 +47,7 @@ class Product extends Resource
     {
         return [
             ID::make()->sortable(),
-            // Text::make('Name'),
+            Text::make('Name'),
             Trix::make('Description'),
             Image::make('image'),
             Number::make('Price'),

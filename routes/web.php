@@ -15,7 +15,7 @@ use App\Product;
 
 Route::get("/api/products", function () {
     return Product::with('category')->latest()->get();
-});
+})->middleware('cors');
 
 Route::view("/success", 'success');
 
