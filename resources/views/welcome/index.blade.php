@@ -26,11 +26,11 @@
 									<span style="font-weight: bold; display: block; margin-bottom: 10px;">
 										${{ number_format($product->price / 100, 2) }}
 									</span>
-									<form method="post">
+									<form method="post" action="/cart/{{ $product->id }}">
 										@csrf
-										<a href="/cart/{{$product->id}}}" class="button is-info">
+										<button class="button is-info">
 											Add to cart
-										</a>
+										</button>
 									</form>
 								</div>
 							</a>

@@ -22,11 +22,11 @@
 				<span class="rating-static rating-35" style="margin-bottom: 1em;"></span>
 
 				<div style="display: flex;">
-					<form method="post" class="mr-8">
+					<form class="mr-3" method="post" action="/cart/{{ $product->id }}">
 						@csrf
-						<a href="/cart/{{$product->id}}}" class="button is-info">
+						<button class="button is-info">
 							Add to cart
-						</a>
+						</button>
 					</form>
 
 					<checkout :amount="{{ $product->price }}"></checkout>

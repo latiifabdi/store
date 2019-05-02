@@ -21,7 +21,7 @@ Route::view("/success", 'success');
 
 Route::get("/cart", "CartsController@index");
 
-Route::get("/cart/{product}", "CartsController@store");
+Route::post("/cart/{product}", "CartsController@store");
 
 
 Route::get("/products", "ProductController@index");
