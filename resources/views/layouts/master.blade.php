@@ -57,6 +57,48 @@
 					<li>
 						<a href="/products" class="link">Shop</a>
 					</li>
+
+					@guest
+                        <li style="margin-bottom: 10px;">
+                            <a class="link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="#">
+                                <a class="link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+
+                    @else
+                    	
+                    	<div class="dropdown">
+						  	<div class="dropdown-trigger">
+						    	<a 
+						    		onclick="document.querySelector('.dropdown').classList.toggle('is-active')" 
+						    		href="#" aria-haspopup="true" aria-controls="dropdown-menu3">
+							      	<span>{{auth()->user()->name}}</span>
+							      	<span class="icon is-small">
+							        	<i class="fas fa-angle-down" aria-hidden="true"></i>
+							      	</span>
+						    	</a>
+						  	</div>
+						
+							<div class="dropdown-menu" id="dropdown-menu3" role="menu">
+							    <div class="dropdown-content">
+						      		<a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                	</a>
+
+                                	<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    	@csrf
+                                	</form>
+							      
+							    </div>
+							</div>
+						</div>
+
+                    @endif
 					
 				</ul>
     		</div>
@@ -128,5 +170,11 @@
 
        @stack('beforeScript')
        <script type="text/javascript" src="/js/app.js"></script>
+
+       <script>
+       		function callme() {
+       			alert('me');
+       		}
+       </script>
     </body>
 </html>
